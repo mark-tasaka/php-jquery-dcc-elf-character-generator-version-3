@@ -52,6 +52,13 @@
             $characterName = $_POST["theCharacterName"];
     
         }
+
+        
+        if(isset($_POST["thePlayerName"]))
+        {
+            $playerName = $_POST["thePlayerName"];
+    
+        }
         
         if(isset($_POST["theGender"]))
         {
@@ -74,6 +81,8 @@
             $level = $_POST["theLevel"];
         
         } 
+        
+        $xpNextLevel = getXPNextLevel ($level);
         
         if(isset($_POST["theAbilityScore"]))
         {
@@ -198,13 +207,24 @@
         $weaponDamage = array();
     
     
-        if(isset($_POST["theWeapons"]))
+        //For Random Select weapon
+        if(isset($_POST['thecheckBoxRandomWeaponsV3']) && $_POST['thecheckBoxRandomWeaponsV3'] == 1) 
         {
-            foreach($_POST["theWeapons"] as $weapon)
+            $weaponArray = getRandomWeapons();
+
+        }
+        else
+        {
+            if(isset($_POST["theWeapons"]))
             {
-                array_push($weaponArray, $weapon);
+                foreach($_POST["theWeapons"] as $weapon)
+                {
+                    array_push($weaponArray, $weapon);
+                }
             }
         }
+
+
     
     foreach($weaponArray as $select)
     {
@@ -220,14 +240,60 @@
         $gearNames = array();
     
     
-        if(isset($_POST["theGear"]))
+    //For Random Select gear
+    if(isset($_POST['theCheckBoxRandomGear']) && $_POST['theCheckBoxRandomGear'] == 1) 
+    {
+        $gearArray = getRandomGear();
+
+        $weaponCount = count($weaponArray);
+
+        $hasLongbow = false;
+        $hasShortbow = false;
+
+        for($i = 0; $i < $weaponCount; ++$i)
         {
-            foreach($_POST["theGear"] as $weapon)
+            if($weaponArray[$i] == "12" && $hasShortbow == false)
             {
-                array_push($gearArray, $weapon);
+                array_push($gearArray, 24);
+                array_push($gearArray, 25);
+                
+                $hasLongbow = true;
             }
+
+            if($weaponArray[$i] == "16" && $hasLongbow == false)
+            {
+                array_push($gearArray, 24);
+
+                $hasShortbow = true;
+            }
+
+            if($weaponArray[$i] == "4")
+            {
+                array_push($gearArray, 26);
+            }
+
+            if($weaponArray[$i] == "18")
+            {
+                array_push($gearArray, 27);
+            }
+
+
         }
-    
+
+    }
+    else
+    {
+        //For Manually select gear
+        if(isset($_POST["theGear"]))
+            {
+                foreach($_POST["theGear"] as $gear)
+                {
+                    array_push($gearArray, $gear);
+                }
+            }
+
+    }
+
         foreach($gearArray as $select)
         {
             array_push($gearNames, getGear($select)[0]);
@@ -294,12 +360,26 @@
                 echo $level;
            ?>
         </span>
-       
+
+        
+       <span id="xpNextLevel">
+           <?php
+                echo $xpNextLevel;
+           ?>
+        </span>
 
        
        <span id="characterName">
            <?php
                 echo $characterName;
+           ?>
+        </span>
+       
+        
+        
+       <span id="playerName">
+           <?php
+                echo $playerName;
            ?>
         </span>
        
@@ -646,7 +726,7 @@
       $("#rangeDamage").html(addModifierSign(data.rangeDamage));
 
       
-      $("#baseAC").html("Base AC: " + data.acBase);
+      $("#baseAC").html("(" + data.acBase + ")");
       $("#trainedWeapon").html("Trained Weapon: " + data.trainedWeapon);
       $("#tradeGoods").html("Trade Goods: " + data.tradeGoods);
       

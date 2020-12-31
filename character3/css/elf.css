@@ -142,7 +142,7 @@ body{
 
 #gearList{
     position:absolute;
-    top: 735px;
+    top: 823px;
     left: 450px;
     font-size: 0.6em;
     width: 220px;
@@ -214,6 +214,7 @@ body{
     top: 1105px;
     left: 450px;
 	font-size: 0.6em;
+    width: 220px;
 }
 
 
@@ -456,27 +457,29 @@ body{
     width: 310px;
 }
 
+
 #languages{
     position:absolute;
-    top: 870px;
-    left: 85px;
-    font-size: 0.9em;
+    top: 430px;
+    left: 360px;
+    font-size: 0.8em;
     width: 300px;
 }
 
 
+
 #melee{
     position:absolute;
-    top: 467px;
-    left: 555px;
+    top: 580px;
+    left: 565px;
 	font-size: 1em;
 }
 
 
 #range{
     position:absolute;
-    top: 510px;
-    left: 555px;
+    top: 625px;
+    left: 565px;
 	font-size: 1em;
 }
 
@@ -484,16 +487,16 @@ body{
 
 #meleeDamage{
     position:absolute;
-    top: 467px;
-    left: 602px;
+    top: 580px;
+    left: 612px;
 	font-size: 1em;
 }
 
 
 #rangeDamage{
     position:absolute;
-    top: 510px;
-    left: 602px;
+    top: 625px;
+    left: 612px;
 	font-size: 1em;
 }
 
@@ -509,7 +512,7 @@ body{
 
 #spellCheck{
     position:absolute;
-    top: 370px;
+    top: 365px;
     left: 490px;
 	font-size: 1em;
 }
@@ -525,15 +528,15 @@ body{
 
 #maxSpellLevel{
     position:absolute;
-    top: 624px;
-    left: 590px;
+    top: 514px;
+    left: 670px;
     font-size: 1em;
 }
 
 
 #knownSpells{
     position:absolute;
-    top: 654px;
-    left: 590px;
+    top: 514px;
+    left: 490px;
     font-size: 1em;
 }

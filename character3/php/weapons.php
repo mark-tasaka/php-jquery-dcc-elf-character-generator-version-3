@@ -1,5 +1,6 @@
 <?php
 
+/*Elf */
 
     function getWeapon($input)
     {
@@ -33,6 +34,29 @@
         return $array1[$input];
         
     }
+
+        
+function getRandomWeapons()
+{
+   
+    $weaponsArray = array(5, 10, 11, 12, 13, 16, 17, 19, 20, 21);
+
+    //shuffle $weaponsArray
+    shuffle($weaponsArray); 
+
+    $numberOfWeapons = rand (3, 6);
+
+    $weaponsHas = array();
+
+    for($j = 0; $j < $numberOfWeapons; ++$j)
+    {
+        $weapon = $weaponsArray[$j];
+        array_push($weaponsHas, $weapon);
+    }
+
+    return $weaponsHas;
+}
+
 
 
 

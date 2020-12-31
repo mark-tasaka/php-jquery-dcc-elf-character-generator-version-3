@@ -12,7 +12,7 @@
         $a07 = array("Mithril banded mail armour", 6, -6, 5, "d16");
         $a08 = array("Mithril half-plate armour", 7, -7, 10, "d16");
         $a09 = array("Mithril full plate armour", 8, -8, 10, "d16");
-        $a10 = array("Shield", 1, -1, 0, "d8");
+        $a10 = array("shield", 1, -1, 0, "d8");
         $a11 = array("", 0, 0, 0, "d4");
 
         $array1= array($a00, $a01, $a02, $a03, $a04, $a05, $a06, $a07, $a08, $a09, $a10, $a11);

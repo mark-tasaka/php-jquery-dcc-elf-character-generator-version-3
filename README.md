@@ -4,6 +4,13 @@ Designed with PHP and jQuery, the Dungeon Crawl Classics Elf Character Generator
 
 -----------------------------
 
+
+
+Update 1.01: 2020-12-31
+
+Updates to dccElf.php, elf.css, languages.js, armour.php, gear.php and weapons.php.  New character sheet added (elf.png).  
+
+
 Initial Commit: 2020-12-30
 
 The initial commit of the Dungeon Crawl Classics Elf Character Generator Version 3.
